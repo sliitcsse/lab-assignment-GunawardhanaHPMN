@@ -1,38 +1,38 @@
 import {randomBytes} from 'crypto';
 
-const users =new Map();
+const items =new Map();
 
-export const save =({UserType,Username,Password})=>{
-    const user ={id:randomBytes(4).toString('hex'),CusID,Prop ,ItemName,Qty,Price,postedDate: new Date()};
-    users.set(user.id,user);
-    return user;
+export const save =({ItemName,ItemPrice,ItemQty,ItemDescription})=>{
+    const item ={id:randomBytes(4).toString('hex'),ItemName,ItemPrice,ItemQty,ItemDescription,postedDate: new Date()};
+    items.set(item.id,item);
+    return item;
 }
 export const  get=(id)=>{
-    const  user =users.get(id);
-    if(!user){
+    const  item =items.get(id);
+    if(!item){
         throw  new Error(`not found for the ID ${id}`)
     }
-    return user;
+    return item;
 }
 
 export const  getAll=()=>{
-    return [...users.values()];
+    return [...items.values()];
 }
 
-export const  update=(id,{UserType,Username,Password,postedDate})=>{
-  if(!users.has(id)){
+export const  update=(id,{ItemName,ItemPrice,ItemQty,ItemDescription,postedDate})=>{
+  if(!items.has(id)){
       throw  new Error(`ID not found`);
   }
-  const user ={id,UserType,Username,Password,postedDate:new Date()};
-  users.set(post.id,post);
-    return user;
+  const item ={id,ItemName,ItemPrice,ItemQty,ItemDescription,postedDate:new Date()};
+  items.set(post.id,post);
+    return item;
 }
 
 export const deletepost=(id)=>{
-    if(!users.has(id)){
+    if(!items.has(id)){
         throw  new Error(`ID not found`);
     }
-    users.delete(id);
+    items.delete(id);
 }
 
 

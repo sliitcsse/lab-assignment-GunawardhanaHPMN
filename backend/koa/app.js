@@ -1,6 +1,7 @@
 import Koa from 'koa';
 import bodyParser from 'koa-bodyparser'
 import customerRouter from "./router/user.router.js";
+import itemRouter from "./router/product.router.js";
 
 const app = new Koa();
 app.use(bodyParser())
@@ -25,6 +26,8 @@ app.use(async (ctx,next)=>{
 
 app.use(customerRouter.routes())
     .use(customerRouter.allowedMethods())
+    app.use(itemRouter.routes())
+    .use(itemRouter.allowedMethods())
 
 // app.use(ctx=>{
 //     console.log('here2');
@@ -33,6 +36,6 @@ app.use(customerRouter.routes())
 //     ctx.status=404
 // });
 
-app.listen(3001,()=>{
-    console.log(`Application is running on port 3001`)
+app.listen(3031,()=>{
+    console.log(`Application Started successfully!! (Running port is 3031`)
 });
