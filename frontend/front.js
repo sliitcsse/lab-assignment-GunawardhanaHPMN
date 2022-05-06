@@ -2,14 +2,13 @@ import React, {useState} from "react";
 import axios from 'axios';
 
 
-function Client(){
+function user(){
 
     const [values, setValues] = useState({
-        name: "",
-        email: "",
+        UserType: "",
+        Username: "",
         password: "",
-        username: "",
-        type:""
+        
       });
   
       const handleAddData = (e) => {
@@ -17,21 +16,19 @@ function Client(){
         setValues({ ...values, [name]: value});
       } 
 
-      const client = (e) => {
+      const user = (e) => {
         e.preventDefault();
-        let clientData = {
-            name: values.name,
-            email: values.email,
-            password: values.password,
-            username: values.username,
-            type: values.type       
+        let userData = {
+            UserType: values.UserType,
+            Username: values.Username,
+            password: values.password,      
         }
 
-        console.log(clientData);
+        console.log(userData);
            
-   axios.post("http://localhost:3000/client", clientData )
+   axios.post("http://localhost:30002/client", userData )
       .then(() => {
-        alert("Inserted successfully");
+        alert("User Data  Inserted successfully");
       })
       
       .catch((error) => {
@@ -47,61 +44,42 @@ function Client(){
            <div>
  
  <form className="form">
-     <label>Name</label>
+     <label>User Type(Seller/Customer)</label>
     
         <input
             // class="form-field-inv"
           type="text"
-          placeholder="Name"
-          name="name"
+          placeholder="type"
+          name="type"
           onChange={handleAddData}
-          value={values.clientname}
+          value={values.UserType}
   />
 
-  <label>Email</label>
+  <label>User Name</label>
        <input
           // class="form-field-inv"
            type="text"
-           placeholder="Email"
-           name="email"
+           placeholder="name"
+           name="name"
            onChange={handleAddData}
-           value={values.clientemail}
+           value={values.username}
   />
 
     <label>password</label>
         <input
         // class="form-field-inv"
         type="text"
-        placeholder="Password"
+        placeholder="password"
        name="password"
        onChange={handleAddData}
        value={values.password}
   />
         
-        <label>User Name</label>
-        <input
-        // class="form-field-inv"
-          type="text"
-          placeholder="username"
-          name="username"
-          onChange={handleAddData}
-          value={values.username}
-  />
-   
-   <label>Type</label>
-        <input
-        // class="form-field-inv"
-          type="text"
-          placeholder="Type"
-          name="type"
-          onChange={handleAddData}
-          value={values.type}
-  />
-
+        
        <button className="form-field cancel-inv" onclick="document.getElementById('myInput').value = ''">
              Clear
         </button>
-      <button class="form-field submit-inv" onClick={client}  type="submit">
+      <button class="form-field submit-inv" onClick={user}  type="submit">
              Submit
       </button>
 
@@ -117,4 +95,4 @@ function Client(){
     )
 }
 
-export default Client;
+export default user;
