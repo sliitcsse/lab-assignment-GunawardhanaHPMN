@@ -24,7 +24,7 @@ export const  update=(id,{ItemName,ItemPrice,ItemQty,ItemDescription,postedDate}
       throw  new Error(`ID not found`);
   }
   const item ={id,ItemName,ItemPrice,ItemQty,ItemDescription,postedDate:new Date()};
-  items.set(post.id,post);
+  items.set(item.id,item);
     return item;
 }
 

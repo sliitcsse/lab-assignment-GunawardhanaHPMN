@@ -24,7 +24,7 @@ export const  update=(id,{UserType,Username,Password,postedDate})=>{
       throw  new Error(`ID not found`);
   }
   const user ={id,UserType,Username,Password,postedDate:new Date()};
-  users.set(post.id,post);
+  users.set(user.id,user);
     return user;
 }
 

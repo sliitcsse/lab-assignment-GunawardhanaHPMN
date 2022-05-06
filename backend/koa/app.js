@@ -36,6 +36,6 @@ app.use(customerRouter.routes())
 //     ctx.status=404
 // });
 
-app.listen(3031,()=>{
-    console.log(`Application Started successfully!! (Running port is 3031`)
+app.listen(3036,()=>{
+    console.log(`Application Started successfully!! (Running port is 3036`)
 });
