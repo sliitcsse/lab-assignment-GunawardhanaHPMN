@@ -26,7 +26,7 @@ function user(){
 
         console.log(userData);
            
-   axios.post("http://localhost:30002/client", userData )
+   axios.post("http://localhost:30036/user", userData )
       .then(() => {
         alert("User Data  Inserted successfully");
       })
@@ -80,7 +80,7 @@ function user(){
              Clear
         </button>
       <button class="form-field submit-inv" onClick={user}  type="submit">
-             Submit
+             Login
       </button>
 
    </form>

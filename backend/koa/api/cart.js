@@ -19,20 +19,20 @@ export const  getAll=()=>{
     return [...cartitems.values()];
 }
 
-export const  update=(id,{ItemName,ItemPrice,ItemQty,ItemDescription,postedDate})=>{
+export const  update=(id,{UserID,ItemID,Quantity,postedDate})=>{
   if(!cartitems.has(id)){
       throw  new Error(`ID not found`);
   }
-  const cartitem ={id,ItemName,ItemPrice,ItemQty,ItemDescription,postedDate:new Date()};
+  const cartitem ={id,UserID,ItemID,Quantity,postedDate:new Date()};
   cartitems.set(cartitem.id,cartitem);
     return cartitem;
 }
 
 export const deletepost=(id)=>{
-    if(!items.has(id)){
+    if(!cartitems.has(id)){
         throw  new Error(`ID not found`);
     }
-    items.delete(id);
+    cartitems.delete(id);
 }
 
 
